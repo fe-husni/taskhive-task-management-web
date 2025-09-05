@@ -8,7 +8,7 @@
     "clean:docs": "rimraf docs",
     "copy:docs": "cpy \"src/*.html\" docs --flat && cpy dist/** docs/dist && cpy img/** docs/img && cpy src/js/** docs/js",
     "copy:index": "cpy src/signin.html docs --rename=index.html --flat",
-    "fixpaths:docs": "replace-in-file \"\\.\\./dist/\" \"dist/\" \"docs/**/*.html\" && replace-in-file \"\\.\\./img/\" \"img/\" \"docs/**/*.html\" && replace-in-file \"\\.\\./js/\" \"js/\" \"docs/**/*.html\" && replace-in-file \"href=\\\"\\.\\/output.css\\\"\" \"href=\\\"dist/output.css\\\"\" \"docs/**/*.html\" && replace-in-file \"url\\(\\.\\./img/\" \"url(img/\" \"docs/**/*.html\" && replace-in-file \"\\.\\./img/\" \"img/\" \"docs/js/**/*.js\"",
+    "fixpaths:docs": "node scripts/fix-paths.js",
     "nojekyll": "node -e \"require('fs').mkdirSync('docs',{recursive:true});require('fs').closeSync(require('fs').openSync('docs/.nojekyll','w'))\"",
     "deploy:docs": "npm run build:css && npm run clean:docs && npm run copy:docs && npm run copy:index && npm run fixpaths:docs && npm run nojekyll"
   }
