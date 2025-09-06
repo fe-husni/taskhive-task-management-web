@@ -18,11 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const result = userManager.signInUser(usernameByInput);
 
     if (result.success) {
-      alert('Success Logged in');
       // contoh "remember me" sederhana:
-      // const remember = document.getElementById('remember').checked;
-      // (remember ? localStorage : sessionStorage).setItem('currentUser', result.user.username);
-      // window.location.href = 'tasks.html';
+      const remember = document.getElementById('remember').checked;
+      (remember ? localStorage : sessionStorage).setItem('currentUser', result.user.username);
+      window.location.href = 'tasks.html';
     } else {
       usernameError.textContent = result.message;
       usernameError.classList.remove("hidden");
