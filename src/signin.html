@@ -18,7 +18,7 @@
             <div class="flex flex-col gap-5">
                 <div>
                     <h1 class="font-bold text-[22px] leading-[33px] mb-[3px]">Sign In</h1>
-                    <p class="text-taskia-grey text-sm leading-[21px]">Manage daily task easily with taskia</p>
+                    <p class="text-taskia-grey text-sm leading-[21px]">Manage your daily task easily with TaskHive</p>
                 </div>
                 <hr class="text-taskia-background-grey">
                 <form class="flex flex-col gap-[30px]" id="userForm">
@@ -33,6 +33,8 @@
                                 class="font-semibold placeholder:text-taskia-grey placeholder:font-normal focus:outline-none w-full "
                                 placeholder="Type your username" id="username" name="username" required>
                         </div>
+                        <!-- error text -->
+                        <p id="usernameError" class="text-red-500 text-sm mt-2 hidden"></p>
                     </div>
                     <label for="remember" class="flex gap-[6px] w-fit">
                         <input type="checkbox" name="remember" id="remember"
@@ -51,6 +53,8 @@
         </div>
     </div>
 
+    <script src="./js/User.js"></script>
+    <script src="./js/signIn.js"></script>
 </body>
 
 </html>
